@@ -1,3 +1,3 @@
-My Java Learning Programs
+My Java Practice Programs
 <br>
 Basic programs
