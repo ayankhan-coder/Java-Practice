@@ -32,6 +32,7 @@ class SmsNotification extends Notification{
     }
 }*/
 
+
 abstract class Vehicle1{            // L3 ------------
     abstract void start();
 }
@@ -47,6 +48,64 @@ class Car extends Vehicle1 {
         System.out.println(" Car Starts");
     }
 }
+
+
+/***************** INTERFACES *****************/
+
+interface Bicycle{                               // L4 -------------
+    void speedUp(int increment);
+    void brake(int decrement);
+}
+interface HornBicycle{
+    void blowHorn();
+}
+class AtlasCycle implements Bicycle,HornBicycle{
+    @Override
+    public void speedUp(int increment) {
+        System.out.println("Speeding up");
+    }
+    @Override
+    public void brake(int decrement) {
+        System.out.println("Applying Brake");
+    }
+    @Override
+    public void blowHorn() {
+        System.out.println("peee peee pee peee");
+    }
+}
+
+
+/*abstract class Student2{                   // L5 ----------------
+    String name;
+    Student2(String name){
+        this.name = name;
+    }
+    abstract void study();
+}
+interface SportsPlayer{
+    void play();
+}
+class SchoolStudent extends Student2{
+    SchoolStudent(String name){
+        super(name);
+    }
+    @Override
+    void study(){
+
+        System.out.println(name + " is studying");
+    }
+}
+class CollegeStudent extends Student2 implements SportsPlayer{
+    CollegeStudent(String name){
+        super(name);
+    }
+    void study(){
+        System.out.println(name + " is studying");
+    }
+    public void play(){
+        System.out.println(name + " Playing");
+    }
+}*/
 
 //#########################################################################
 public class Abstract_Interfaces {
@@ -83,6 +142,30 @@ public class Abstract_Interfaces {
             v = new Bike();
         }
         v.start();
+
+/***************** INTERFACES *****************/
+        AtlasCycle atlasCycle = new AtlasCycle();         // L4 --------------
+        atlasCycle.speedUp(50);
+        atlasCycle.brake(10);
+        atlasCycle.blowHorn();
+
+       /* Student2 s1 = new SchoolStudent("ayan");        // L5 --------------
+        Student2 s2 = new CollegeStudent("ahmed");
+        s1.study();
+        s2.study();
+        CollegeStudent cs = new CollegeStudent("khan");
+        cs.play();*/
+
+
+
+
+
+
+
+
+
+
+
 
 
     }
