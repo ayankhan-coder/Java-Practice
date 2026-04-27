@@ -1,5 +1,5 @@
 
-
+import java.util.Scanner;
 /*JAVA INTERFACES AND DEFAULT METHODS*/
 interface Camera{                         // L1------Interfaces-default-private
     void takeSnap();
@@ -76,9 +76,57 @@ class IPhone implements SmartDevice {
         System.out.println("Playing Music");
     }
 }*/
+
+abstract class User{                  // L3 -------------Important
+    String name;
+    public User(String name) {
+        this.name = name;
+    }
+}
+interface PlayVideo{
+    void playVideo();
+}
+interface StopVideo{
+    void stopVideo();
+}interface DownloadVideo{
+    void downloadVideo();
+}
+interface DownloadAtHighQuality{
+    void downloadAtHighQuality();
+}
+interface YoutubeFunctions extends PlayVideo,StopVideo,DownloadVideo{
+}
+interface YoutubePremiumFunctions extends DownloadAtHighQuality,YoutubeFunctions{}
+class Youtube extends User implements YoutubeFunctions{
+    public Youtube(String name) {
+        super(name);
+    }
+    @Override
+    public void playVideo() {
+        System.out.println("Video is Playing");
+    }
+    @Override
+    public void stopVideo() {
+        System.out.println("video stopped");
+    }
+    @Override
+    public void downloadVideo() {
+        System.out.println("video downloaded at low quality");
+    }
+}
+class YoutubePremium extends Youtube implements YoutubePremiumFunctions {
+    public YoutubePremium(String name) {
+        super(name);
+    }
+    @Override
+    public void downloadAtHighQuality() {
+    }
+}
+
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 public class Interfaces_DefaultMethods {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
 
         MySmartPhone ms = new MySmartPhone();          // L1------Interfaces-default-private
         ms.record4KVideo();
@@ -91,6 +139,15 @@ public class Interfaces_DefaultMethods {
        /* IPhone iPhone = new IPhone();                // L2------Inheritance in Interfaces
         iPhone.music();
         iPhone.camera();*/
+
+        YoutubeFunctions user;                         // L3- -----------Important
+        System.out.println("Enter 1:Youtube    2:YoutubePremium");
+        int choice = sc.nextInt();
+        if (choice == 1){
+            user = new Youtube("ayan");
+        }else {
+            user = new YoutubePremium("ahmed");
+        }
 
     }
 }
