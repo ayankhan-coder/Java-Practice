@@ -1,3 +1,5 @@
+package practice;
+
 public class methods_ch_7 {
    static int logic(int x,int y){  //LOGIC 1---
         int z;
